@@ -3,7 +3,7 @@ package base;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Note {
+public class Note implements Comparable<Note>{
 	private Date date;
 	private String title;
 	
@@ -16,5 +16,22 @@ public class Note {
 	}
 	public Boolean equals(Note note) {
 		return title.equals(note.getTitle());
+	}
+	public Date getDate() {
+		return this.date;
+	}
+	public int compareTo(Note o) {
+		if(this.date.compareTo(o.getDate())<0) {
+			return 1;
+		}
+		else if(this.date.compareTo(o.getDate())>0) {
+			return -1;
+		}
+		else {
+			return 0;
+		}
+	}
+	public String toString() {
+		return date.toString()+"\t"+title;
 	}
 }

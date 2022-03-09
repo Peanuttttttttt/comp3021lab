@@ -7,4 +7,12 @@ public class TextNote extends Note {
 		super(title);
 		
 	}
+	public String getText() {
+		return this.content;
+	}
+	//overload the constructor
+	public TextNote(String title, String content) {
+		super(title);
+		this.content = content;
+	}
 }

@@ -1,5 +1,9 @@
 package base;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Comparator;
+import java.util.Collection;
+import java.util.Collections;
 public class NoteBook {
 	private ArrayList<Folder> folders;
 	public NoteBook() {
@@ -37,5 +41,28 @@ public class NoteBook {
 		}
 		checkfolder.addNote(notetitle);
 		return true;
+	}
+	Comparator<Folder> SortByFolderName = new Comparator<Folder>() {
+		public int compare(Folder A1,Folder A2) {
+			return A1.compareTo(A2);
+		}
+	};
+	public void sortFolders() {
+		Collections.sort(folders,SortByFolderName);
+		for(Folder i : folders) {
+			i.sortNotes();
+		}
+	}
+	public List<Note> searchNotes(String keywords){
+		ArrayList<Note> allNotes = new ArrayList<Note>();
+		for(Folder CurrentFolder:folders) {
+			allNotes.addAll(CurrentFolder.searchNotes(keywords));
+		}
+		return allNotes;
+	}
+	//overload the createTextNote()
+	public boolean createTextNote(String folderName, String title, String content) {
+		TextNote note = new TextNote(title,content);
+		return insertNote(folderName,note);
 	}
 }
