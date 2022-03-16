@@ -4,7 +4,9 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-public class Folder implements Comparable<Folder>{
+import java.io.Serializable;
+import base.Note;
+public class Folder implements Comparable<Folder>,Serializable{
 	private ArrayList<Note> notes;
 	private String name;
 	
@@ -48,13 +50,13 @@ public class Folder implements Comparable<Folder>{
 			return 0;
 		}
 	}
-	Comparator<Note> SortByDate = new Comparator<Note>() {
-		public int compare(Note A1,Note A2) {
-			return A1.compareTo(A2);
-		}
-	};
+//	Comparator<Note> SortByDate = new Comparator<Note>() {
+//		public int compare(Note A1,Note A2) {
+//			return A1.compareTo(A2);
+//		}
+//	};
 	public void sortNotes() {
-		Collections.sort(notes,SortByDate);
+		Collections.sort(notes);
 	}
 	public List<Note> searchNotes(String keywords){
 		String[] SplitKeywords = keywords.split(" ");
