@@ -78,7 +78,7 @@ public class Folder implements Comparable<Folder>,Serializable{
 						continue;
 					}
 				}
-				else if(SplitKeywords[CurrentKeywords-1].equalsIgnoreCase("or") &&
+				else if(CurrentKeywords-1>=0&&SplitKeywords[CurrentKeywords-1].equalsIgnoreCase("or") &&
 						CurrentNote.getTitle().toUpperCase().contains( SplitKeywords[CurrentKeywords-2].toUpperCase())) {
 					if(CurrentKeywords == SplitKeywords.length-1) {
 						KeywordsNote.add(CurrentNote);
@@ -100,7 +100,7 @@ public class Folder implements Comparable<Folder>,Serializable{
 						continue;
 						}
 					}
-					else if(SplitKeywords[CurrentKeywords-1].equalsIgnoreCase("or") &&
+					else if(CurrentKeywords-1>=0&&SplitKeywords[CurrentKeywords-1].equalsIgnoreCase("or") &&
 							CurrentTextNote.getText().toUpperCase().contains( SplitKeywords[CurrentKeywords-2].toUpperCase())) {
 						if(CurrentKeywords == SplitKeywords.length-1) {
 							KeywordsNote.add(CurrentTextNote);
