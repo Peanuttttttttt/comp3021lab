@@ -11,7 +11,7 @@ import java.io.FileWriter;
 import java.io.Serializable;
 public class TextNote extends Note implements Serializable{
 	private String content;
-	
+	private static final long serialVersionUID = 1L;
 	public TextNote(String title) {
 		super(title);
 		
