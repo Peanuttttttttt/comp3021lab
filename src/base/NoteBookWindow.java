@@ -211,6 +211,7 @@ public class NoteBookWindow extends Application {
 
 		VBox vbox = new VBox();
 		HBox hbox = new HBox();
+		hbox.setSpacing(10);
 		vbox.setPadding(new Insets(10)); // Set all sides to 10
 		vbox.setSpacing(8); // Gap between nodes
 
