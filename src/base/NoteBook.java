@@ -106,6 +106,15 @@ public class NoteBook implements Serializable {
 			e.printStackTrace();
 		}
 	}
+	public boolean isFolderExist(String name) {
+		for(Folder i: folders) {
+			if(i.getName().equals(name)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	
 	
 }
